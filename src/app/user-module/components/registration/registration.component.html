@@ -1,35 +1,43 @@
-<form>
-  <div class="mb-3">
-    <label for="Name" class="form-label">Imię</label>
-    <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="dateOfBirth" class="form-label">Data urodzenia</label>
-    <input type="date" class="form-control" id="dateOfBirthInput" name="date">
-  </div>
-  <div class="form-group">
-    <label for="gener">Płeć</label>
-    <select class="form-control" id="genderSelect">
-      <option>wybierz</option>
-      <option>kobieta</option>
-      <option>mężczyzna</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label for="username" class="form-label">Nazwa Użytkownika</label>
-    <input type="text" class="form-control" id="usernameInput" aria-describedby="emailHelp">
-  </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">E-mail</label>
-      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+<div class="d-flex vh-100">
+  <div class="container my-auto">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <form class="w-100 p-4 border rounded bg-white shadow">
+          <div class="mb-3">
+            <label for="Name" class="form-label">Imię</label>
+            <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="dateOfBirth" class="form-label">Data urodzenia</label>
+            <input type="date" class="form-control" id="dateOfBirthInput" name="date">
+          </div>
+          <div class="form-group">
+            <label for="genderSelect">Płeć</label>
+            <select class="form-control" id="genderSelect">
+              <option>wybierz</option>
+              <option>kobieta</option>
+              <option>mężczyzna</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Nazwa Użytkownika</label>
+            <input type="text" class="form-control" id="usernameInput" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Hasło</label>
+            <input type="password" class="form-control" id="passwordInput">
+          </div>
+          <div class="mb-3">
+            <label for="reInputPassword" class="form-label">Powtórz hasło</label>
+            <input type="password" class="form-control" id="reInputPasswordInput">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Zarejestruj</button>
+        </form>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Hasło</label>
-      <input type="password" class="form-control" id="passwordInput">
-    </div>
-    <div class="mb-3">
-      <label for="reInputPassword" class="form-label">Powtórz hasło</label>
-      <input type="password" class="form-control" id="reInputPasswordInput">
-    </div>
-    <button type="submit" class="btn btn-primary">Zarejestruj</button>
-</form>
+  </div>
+</div>
