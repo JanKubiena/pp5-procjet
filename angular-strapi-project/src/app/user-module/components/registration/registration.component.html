@@ -2,7 +2,7 @@
   <div class="container my-auto">
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
-        <form class="w-100 p-4 border rounded bg-white shadow">
+        <form (ngSubmit)="register($event)" class="w-100 p-4 border rounded bg-white shadow">
           <h3 class="mb-4 text-center">Rejestracja</h3>
           <div class="mb-3">
             <label for="Name" class="form-label">Imię</label>
@@ -22,15 +22,15 @@
           </div>
           <div class="mb-3">
             <label for="username" class="form-label">Nazwa Użytkownika</label>
-            <input type="text" class="form-control" id="usernameInput" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="usernameInput" name="username" [(ngModel)]="formData.username" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="emailInput" name="email" [(ngModel)]="formData.email" required>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Hasło</label>
-            <input type="password" class="form-control" id="passwordInput">
+            <input type="password" class="form-control" id="passwordInput" name="password" [(ngModel)]="formData.password" required>
           </div>
           <div class="mb-3">
             <label for="reInputPassword" class="form-label">Powtórz hasło</label>
@@ -38,7 +38,23 @@
           </div>
           <button type="submit" class="btn btn-primary w-100">Zarejestruj</button>
         </form>
+        <div *ngIf="message">{{ message }}</div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <form (ngSubmit)="register($event)">
+  <label for="username" class="block">Username</label>
+  <input type="text" id="username" name="username" class="block" [(ngModel)]="formData.username" required />
+
+  <label for="email" class="block">Email</label>
+  <input type="email" id="email" name="email" class="block mb-2" [(ngModel)]="formData.email" required />
+
+  <label for="password" class="block">Password</label>
+  <input type="password" id="password" name="password" class="block" [(ngModel)]="formData.password" required />
+
+  <button type="submit">Submit</button>
+
+  <div *ngIf="message">{{ message }}</div>
+</form> -->
