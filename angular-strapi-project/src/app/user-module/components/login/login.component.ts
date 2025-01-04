@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthenticatedService } from '../../../services/authentication.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -14,25 +14,30 @@ export class LoginComponent {
   formData: { identifier?: string; password?: string } = {};
   message: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private authenticatedService: AuthenticatedService) {}
 
   login(event: Event): void {
     event.preventDefault();
     this.message = null;
 
-    this.http
-      .post('http://127.0.0.1:8082/api/auth/local', this.formData)
-      .subscribe({
+    if (this.formData.identifier && this.formData.password) {
+      this.authenticatedService.login({
+        identifier: this.formData.identifier,
+        password: this.formData.password
+      }).subscribe({
         next: (res: any) => {
           if (res.error) {
             this.message = res.error.message;
-          } else if (res.jwt && res.user) {
+          } else {
             this.message = 'Logowanie zakończone sukcesem.';
           }
         },
-        error: (err) => {
+        error: () => {
           this.message = 'Nieprawidłowe dane logowania. Spróbuj ponownie.';
         }
       });
+    } else {
+      this.message = 'Proszę wprowadzić identyfikator i hasło.';
+    }
   }
 }
