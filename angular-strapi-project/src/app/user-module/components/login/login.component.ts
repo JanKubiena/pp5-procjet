@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthenticatedService } from '../../../services/authentication.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   formData: { identifier?: string; password?: string } = {};
   message: string | null = null;
 
-  constructor(private authenticatedService: AuthenticatedService) {}
+  constructor(private authenticatedService: AuthenticatedService, private router: Router) {}
 
   login(event: Event): void {
     event.preventDefault();
@@ -30,6 +31,9 @@ export class LoginComponent {
             this.message = res.error.message;
           } else {
             this.message = 'Logowanie zakończone sukcesem.';
+            setTimeout(() => {
+              this.router.navigate(['/user/account']);
+          }, 2000);
           }
         },
         error: () => {
