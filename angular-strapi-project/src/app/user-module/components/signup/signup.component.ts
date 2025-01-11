@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrl: './registration.component.scss',
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.scss',
   imports: [FormsModule, CommonModule],
   standalone: true
 })

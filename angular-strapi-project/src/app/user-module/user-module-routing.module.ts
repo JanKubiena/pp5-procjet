@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { AuthGuard } from '../guards/authentication.guard';
+import { LoggedInGuard } from '../guards/is-logged-in.guard';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { RegistrationComponent } from './components/signup/signup.component';
 
 const routes = [
-    {path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
+    {path: 'account', component: AccountComponent, canActivate: [LoggedInGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'registration', component: RegistrationComponent},
 ];
