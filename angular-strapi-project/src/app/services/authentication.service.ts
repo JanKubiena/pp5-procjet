@@ -12,7 +12,7 @@ interface AuthResponse {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticatedService {
+export class AuthService {
   private starpiUrl = 'http://127.0.0.1:8082/api/auth/local';
   private loginTracker = new BehaviorSubject(this.checkIfLoggedIn());
     
