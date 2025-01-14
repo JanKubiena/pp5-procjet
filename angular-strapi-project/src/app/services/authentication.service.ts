@@ -24,12 +24,15 @@ export class AuthService {
     return this.http.post<AuthResponse>(this.starpiUrl, { identifier, password });
   }
 
-  register(username: string, email: string, password: string) {
+  register(username?: string, email?: string, password?: string) {
     return this.http.post<AuthResponse>(`${this.starpiUrl}/register`, { username, email, password });
   }
 
   checkIfLoggedIn() {
-    return this.ss.getItem('loggedIn') === 'true';
+    if (typeof localStorage !== 'undefined') {
+      return !!localStorage.getItem('token');
+  }
+  return false;
   }
 
   persistUser(resp: AuthResponse) {
