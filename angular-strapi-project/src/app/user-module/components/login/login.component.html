@@ -6,7 +6,7 @@
           <h3 class="mb-4 text-center">Logowanie</h3>
           <div class="mb-3">
             <label for="loginIdentifier" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="loginIdentifier" name="identifier" [(ngModel)]="formData.identifier" required>
+            <input type="email" class="form-control" id="loginIdentifier" name="identifier" [(ngModel)]="formUserData.identifier" required>
           </div>
           <div class="mb-3">
             <label for="loginUsername" class="form-label">Nazwa Użytkownika</label>
@@ -14,7 +14,7 @@
           </div>
           <div class="mb-3">
             <label for="userPassword" class="form-label">Hasło</label>
-            <input type="password" class="form-control" id="userPassword" name="password" [(ngModel)]="formData.password" required>
+            <input type="password" class="form-control" id="userPassword" name="password" [(ngModel)]="formUserData.password" required>
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="rememberMeCheckbox">

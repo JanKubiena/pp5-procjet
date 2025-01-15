@@ -14,13 +14,16 @@ interface AuthResponse {
 })
 export class AuthService {
   private starpiUrl = 'http://127.0.0.1:8082/api/auth/local';
-  private loginTracker = new BehaviorSubject(this.checkIfLoggedIn());
+  private loginTracker: BehaviorSubject<boolean>;
     
-  loggedInStatus$ = this.loginTracker.asObservable();
+  loggedInStatus$;
 
-  constructor(private http: HttpClient, private ss: StorageService) {}
+  constructor(private http: HttpClient, private ss: StorageService) {
+    this.loginTracker = new BehaviorSubject(this.checkIfLoggedIn());
+    this.loggedInStatus$ = this.loginTracker.asObservable();
+  }
 
-  login(identifier: string, password: string) {
+  login(identifier?: string, password?: string) {
     return this.http.post<AuthResponse>(this.starpiUrl, { identifier, password });
   }
 
@@ -29,11 +32,8 @@ export class AuthService {
   }
 
   checkIfLoggedIn() {
-    if (typeof localStorage !== 'undefined') {
-      return !!localStorage.getItem('token');
-  }
-  return false;
-  }
+    return this.ss.getItem('loggedIn') === 'true';
+}
 
   persistUser(resp: AuthResponse) {
     [

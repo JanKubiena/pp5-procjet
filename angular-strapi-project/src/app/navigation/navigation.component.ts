@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   username = '';
   authStatus!: Subscription;
 
-  constructor(private auth: AuthService, private router: Router ) {}
+  constructor(public auth: AuthService, private router: Router ) {}
 
   ngOnInit(): void {
     this.authStatus = this.auth.loggedInStatus$.subscribe(status => {
@@ -32,5 +32,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authStatus.unsubscribe();
+  }
+
+  logout() {
+    this.auth.logout();
   }
 }
