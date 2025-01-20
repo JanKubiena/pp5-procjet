@@ -1,12 +1,12 @@
+import { User } from "./user";
+
 export interface Film {
     id: number;
     documentId: string;
     Title: string;
     Director: string;
     Grade: number;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
+    user:User;
   }
   
   export interface ApiResponse {

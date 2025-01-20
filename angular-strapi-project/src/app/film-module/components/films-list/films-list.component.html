@@ -1,5 +1,5 @@
 <h1>Lista twoich obejrzanych filmów:</h1>
-<div *ngFor="let film of films" class="card" style="width: 18rem; margin-bottom: 1rem;">
+<div *ngFor="let film of userFilms" class="card" style="width: 18rem; margin-bottom: 1rem;">
     <div class="card-body">
       <h5 class="card-title">Tytuł: {{ film.Title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">Reżyser: {{ film.Director }}</h6>

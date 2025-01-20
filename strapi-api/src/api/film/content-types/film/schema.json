@@ -4,7 +4,8 @@
   "info": {
     "singularName": "film",
     "pluralName": "films",
-    "displayName": "Film"
+    "displayName": "Film",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,12 @@
       "type": "integer",
       "max": 10,
       "min": 1
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "films"
     }
   }
 }
