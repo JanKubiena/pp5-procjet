@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/authentication.service';
-import { Subscription } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Film, ApiResponse } from '../../../models/film';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../../services/authentication.service';
+import { FilmsService } from '../../../services/films.service';
+import { Film } from '../../../models/film';
 import { User } from '../../../models/user';
+
 
 @Component({
   selector: 'app-films-list',
@@ -20,14 +21,14 @@ export class FilmsListComponent implements OnInit {
   user:User = {id: '', username: '', email: ''};
   userFilms: Film[] = [];
 
-  constructor(public auth: AuthService, private http: HttpClient) {}
+  constructor(public auth: AuthService, private fs: FilmsService) {}
 
   ngOnInit(): void {
     this.authStatus = this.auth.loggedInStatus$.subscribe(status => {
       this.isLoggedIn = status;
       console.log(status)
       if (status) {
-        this.http.get<ApiResponse>(this.filmsUrl, this.auth.getAuthHeader())
+        this.fs.getUserFilmsList()
         .subscribe(res => {
           this.user = this.auth.getPersistedUser();
           for (let i = 0; i < res.data.length; i++) {
