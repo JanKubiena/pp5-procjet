@@ -37,7 +37,7 @@ export class AuthService {
 
   persistUser(resp: AuthResponse) {
     [
-      ['userId', resp.user.id],
+      ['userId', resp.user.documentId],
       ['userEmail', resp.user.email],
       ['username', resp.user.username],
       ['loggedIn', 'true'],
@@ -46,12 +46,8 @@ export class AuthService {
     this.loginTracker.next(true);
   }
 
-  getPersistedUser(): User {
-    return {
-      id: this.ss.getItem('userId') || '',
-      username: this.ss.getItem('username') || '',
-      email: this.ss.getItem('userEmail') || ''
-    };
+  getPersistedUserId(): string {
+    return this.ss.getItem('userId') || ''
   }
 
   getPersistedToken(): string {

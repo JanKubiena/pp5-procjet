@@ -1,5 +1,12 @@
 export interface User {
-    id: string,
-    username: string,
-    email: string
+    id: number;
+    documentId: string;
+    username: string;
+    email: string;
+    provider: string;
+    confirmed: Boolean;
+    blocked: Boolean;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
 }

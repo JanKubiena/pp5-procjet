@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../services/authentication.service';
 import { FilmsService } from '../../../services/films.service';
-import { Film } from '../../../models/film';
-import { User } from '../../../models/user';
+import { Film} from '../../../models/film';
 
 
 @Component({
@@ -17,8 +16,7 @@ import { User } from '../../../models/user';
 export class FilmsListComponent implements OnInit {
   isLoggedIn = false;
   authStatus!: Subscription;
-  filmsUrl = 'http://localhost:8082/api/films?populate=*';
-  user:User = {id: '', username: '', email: ''};
+  userId: string = '';
   userFilms: Film[] = [];
 
   constructor(public auth: AuthService, private fs: FilmsService) {}
@@ -30,9 +28,9 @@ export class FilmsListComponent implements OnInit {
       if (status) {
         this.fs.getUserFilmsList()
         .subscribe(res => {
-          this.user = this.auth.getPersistedUser();
+          this.userId = this.auth.getPersistedUserId();
           for (let i = 0; i < res.data.length; i++) {
-            if (this.user.email === res.data[i].user.email && this.user.username === res.data[i].user.username) {
+            if (this.userId === res.data[i].user.documentId) {
               this.userFilms.push(res.data[i]);
             }
           }

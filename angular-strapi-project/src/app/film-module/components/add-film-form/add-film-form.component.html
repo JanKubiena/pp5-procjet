@@ -1,0 +1,25 @@
+<div class="d-flex vh-100">
+    <div class="container my-auto">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <form class="w-100 p-4 border rounded bg-white shadow" (ngSubmit)="addFilm()" #filmForm="ngForm">
+            <h3 class="mb-4 text-center">Dodaj film:</h3>
+            <div class="mb-3">
+              <label for="loginIdentifier" class="form-label">Tytuł</label>
+              <input type="text" class="form-control" id="userFilmTitle" name="Title" [(ngModel)]="userFilm.Title" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginUsername" class="form-label">Reżyser</label>
+              <input type="text" class="form-control" id="userFilmDirector" name="Director" [(ngModel)]="userFilm.Director" required>
+            </div>
+            <div class="mb-3">
+              <label for="userPassword" class="form-label">Ocena</label>
+              <input type="number" min="1" max="10" class="form-control" id="userFilmGrade" name="Garde" [(ngModel)]="userFilm.Grade" required>
+            </div>
+            <button [disabled]="!filmForm.valid" type="submit" class="btn btn-primary w-100" href="films/films-list">Potwierdź</button>
+          </form>
+          <!-- <div *ngIf="message">{{ message }}</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
