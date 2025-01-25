@@ -1,5 +1,4 @@
 import { User } from './user';
-import { AuthService } from '../services/authentication.service';
 
 export interface Film {
     id: number;
@@ -11,6 +10,14 @@ export interface Film {
     updatedAt: string;
     publishedAt: string;
     user: User;
+  }
+
+  export interface PostFilm {
+    
+    Title: string;
+    Director: string;
+    Grade: number;
+    user: string;
   }
   
   export interface FilmsApiResponse {
@@ -25,12 +32,8 @@ export interface Film {
     };
   }
 
-  export class PostFilm {
-
-    constructor() {}
-    
-    Title: string = '';
-    Director: string = '';
-    Grade: number | undefined;
-    user: string = "";
+  export interface SingleFilmApiResponse {
+    data: Film;
+    meta: {};
   }
+

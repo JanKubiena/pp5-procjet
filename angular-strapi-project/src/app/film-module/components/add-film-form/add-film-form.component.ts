@@ -17,7 +17,7 @@ export class AddFilmFormComponent {
 
   constructor(public auth: AuthService, private fs: FilmsService, private route: Router) {}
 
-  userFilm: PostFilm = new PostFilm();
+  userFilm: PostFilm = {} as PostFilm;
 
   addFilm() {
     this.userFilm.user = this.auth.getPersistedUserId();
