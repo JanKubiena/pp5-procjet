@@ -1,1 +1,25 @@
-<h3 class="card-title">Tytuł: {{ CurrentFilm.Title }}</h3>
+<div class="d-flex vh-100">
+    <div class="container my-auto">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <form class="w-100 p-4 border rounded bg-white shadow" (ngSubmit)="updateFilm()" #filmForm="ngForm">
+            <h3 class="mb-4 text-center">Edycja Filmu:</h3>
+            <div class="mb-3">
+              <label for="editUserFilmTitle" class="form-label">Tytuł</label>
+              <input type="text" class="form-control" id="editUserFilmTitle" name="Title" [(ngModel)]="currentFilm.Title" required>
+            </div>
+            <div class="mb-3">
+              <label for="editUserFilmDirector" class="form-label">Reżyser</label>
+              <input type="text" class="form-control" id="editUserFilmDirector" name="Director" [(ngModel)]="currentFilm.Director" required>
+            </div>
+            <div class="mb-3">
+              <label for="editUserFilmGrade" class="form-label">Ocena</label>
+              <input type="number" min="1" max="10" class="form-control" id="editUserFilmGrade" name="Garde" [(ngModel)]="currentFilm.Grade" required>
+            </div>
+            <button [disabled]="!filmForm.valid" type="submit" class="btn btn-primary w-100">Zapisz</button>
+          </form>
+          <!-- <div *ngIf="message">{{ message }}</div> -->
+        </div>
+      </div>
+    </div>
+</div>

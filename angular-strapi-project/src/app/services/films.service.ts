@@ -29,13 +29,14 @@ export class FilmsService {
   }
 
   addFilm(film: PostFilm) {
-    let dataToPost = {
-      data: film
-    };
-    return this.http.post(`${this.filmsUrl}?populate=*`, dataToPost, this.auth.getAuthHeader());
+    return this.http.post(`${this.filmsUrl}?populate=*`, { data: film }, this.auth.getAuthHeader());
   }
 
-  getFilmById(id: string): Observable<SingleFilmApiResponse> {
-    return this.http.get<SingleFilmApiResponse>(`${this.filmsUrl}/${id}?populate=*`, this.auth.getAuthHeader());
+  getFilmById(documentId: string): Observable<SingleFilmApiResponse> {
+    return this.http.get<SingleFilmApiResponse>(`${this.filmsUrl}/${documentId}?populate=*`, this.auth.getAuthHeader());
+  }
+
+  updateFilm(film: PostFilm, documentId: string): Observable<any> {
+    return this.http.put(`${this.filmsUrl}/${documentId}?populate=*`, { data: film }, this.auth.getAuthHeader());
   }
 }
