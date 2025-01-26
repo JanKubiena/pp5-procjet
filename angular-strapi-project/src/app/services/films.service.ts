@@ -39,4 +39,8 @@ export class FilmsService {
   updateFilm(film: PostFilm, documentId: string): Observable<any> {
     return this.http.put(`${this.filmsUrl}/${documentId}?populate=*`, { data: film }, this.auth.getAuthHeader());
   }
+
+  deleteFilm(documentId: string): Observable<any> {
+    return this.http.delete(`${this.filmsUrl}/${documentId}`, this.auth.getAuthHeader());
+  }
 }

@@ -2,7 +2,7 @@
     <div class="container my-auto">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
-          <form class="w-100 p-4 border rounded bg-white shadow" (ngSubmit)="updateFilm()" #filmForm="ngForm">
+          <form class="w-100 p-4 border rounded bg-white shadow" (ngSubmit)="onSubmit($event)" #filmForm="ngForm">
             <h3 class="mb-4 text-center">Edycja Filmu:</h3>
             <div class="mb-3">
               <label for="editUserFilmTitle" class="form-label">Tytuł</label>
@@ -16,7 +16,8 @@
               <label for="editUserFilmGrade" class="form-label">Ocena</label>
               <input type="number" min="1" max="10" class="form-control" id="editUserFilmGrade" name="Garde" [(ngModel)]="currentFilm.Grade" required>
             </div>
-            <button [disabled]="!filmForm.valid" type="submit" class="btn btn-primary w-100">Zapisz</button>
+            <button [disabled]="!filmForm.valid" type="submit" name="action" value="save" class="btn btn-primary w-100 mb-2">Zapisz</button>
+            <button [disabled]="!filmForm.valid" type="submit" name="action" value="delete" class="btn btn-danger w-100">Usuń film</button>
           </form>
           <!-- <div *ngIf="message">{{ message }}</div> -->
         </div>

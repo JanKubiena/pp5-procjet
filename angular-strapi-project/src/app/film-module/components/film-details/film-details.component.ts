@@ -28,6 +28,19 @@ export class FilmDetailsComponent implements OnInit {
       )
     ).subscribe(film => this.currentFilm = film.data);
   }
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    const target = event.target as HTMLFormElement;
+    const action = (target.querySelector('button[type="submit"][name="action"]:focus') as HTMLButtonElement).value;
+
+    if (action === 'save') {
+      this.updateFilm();
+    } else if (action === 'delete') {
+      this.deleteFilm();
+    }
+  }
+
   updateFilm() {
     let updatedFilm: PostFilm = {
       Title: this.currentFilm.Title,
@@ -42,5 +55,12 @@ export class FilmDetailsComponent implements OnInit {
     });
   }
 
-
+  deleteFilm() {
+    if(confirm('Are you sure you want to delete this film?')) {
+      this.fs.deleteFilm(this.currentFilm.documentId).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['/films/films-list']);
+      });
+    }
+  }
 }
