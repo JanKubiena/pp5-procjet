@@ -46,7 +46,10 @@ export class FilmDetailsComponent implements OnInit {
       Title: this.currentFilm.Title,
       Director: this.currentFilm.Director,
       Grade: this.currentFilm.Grade,
-      user: this.currentFilm.user.documentId
+      user: this.currentFilm.user.documentId,
+      FilmStatus: this.currentFilm.FilmStatus,
+      FilmComment: this.currentFilm.FilmComment,
+      Favourite: this.currentFilm.Favourite,
     };
 
     this.fs.updateFilm(updatedFilm, this.currentFilm.documentId).subscribe(res => {

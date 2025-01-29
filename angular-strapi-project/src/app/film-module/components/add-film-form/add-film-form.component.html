@@ -14,7 +14,23 @@
             </div>
             <div class="mb-3">
               <label for="addUserFilmGrade" class="form-label">Ocena</label>
-              <input type="number" min="1" max="10" class="form-control" id="addUserFilmGrade" name="Garde" [(ngModel)]="userFilm.Grade" required>
+              <input type="number" min="1" max="10" class="form-control" id="addUserFilmGrade" name="Garde" [(ngModel)]="userFilm.Grade">
+            </div>
+            <div class="mb-3">
+              <label for="editUserFilmStatus" class="form-label">Status</label>
+              <select type="string" class="form-select" id="editUserFilmStatus" name="FilmStatus" [(ngModel)]="userFilm.FilmStatus" required>
+                <option value="Watched">Obejrzane</option>
+                <option value="ToWatch">Do oglądnięcia</option>
+                <option value="Unfinished">Niedokończone</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editUserFilmComment" class="form-label">Komentarz do filmu</label>
+              <textarea class="form-control" id="editUserFilmComment" name="FilmComment" [(ngModel)]="userFilm.FilmComment"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editUserFavourite" class="form-check-label">Dodać do ulubionych?</label>
+              <input type="checkbox" class="form-check-input" id="editUserFavourite" name="Favourite" [(ngModel)]="userFilm.Favourite">
             </div>
             <button [disabled]="!filmForm.valid" type="submit" class="btn btn-primary w-100" href="films/films-list">Potwierdź</button>
           </form>

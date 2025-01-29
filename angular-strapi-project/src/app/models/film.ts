@@ -9,6 +9,9 @@ export interface Film {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    FilmStatus: string,
+    FilmComment: string,
+    Favourite: Boolean,
     user: User;
   }
 
@@ -18,6 +21,9 @@ export interface Film {
     Director: string;
     Grade: number;
     user: string;
+    FilmStatus: string,
+    FilmComment: string,
+    Favourite: Boolean,
   }
   
   export interface FilmsApiResponse {

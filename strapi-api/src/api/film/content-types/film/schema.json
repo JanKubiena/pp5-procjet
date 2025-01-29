@@ -28,6 +28,21 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "films"
+    },
+    "FilmStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Watched",
+        "ToWatch",
+        "Unfinished"
+      ]
+    },
+    "Favourite": {
+      "type": "boolean"
+    },
+    "FilmComment": {
+      "type": "text",
+      "maxLength": 255
     }
   }
 }

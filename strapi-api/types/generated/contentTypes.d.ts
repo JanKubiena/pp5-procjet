@@ -385,6 +385,14 @@ export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Director: Schema.Attribute.String;
+    Favourite: Schema.Attribute.Boolean;
+    FilmComment: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    FilmStatus: Schema.Attribute.Enumeration<
+      ['Watched', 'ToWatch', 'Unfinished']
+    >;
     Grade: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {

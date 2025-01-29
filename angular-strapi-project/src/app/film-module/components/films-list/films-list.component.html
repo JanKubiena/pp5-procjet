@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Lista twoich obejrzanych filmów:</h1>
-  <div *ngFor="let film of userFilms" class="card" style="width: 18rem; margin-bottom: 1rem;">
+  <h2>TWOJA FILMOWA LISTA:</h2>
+  <div class="card" *ngFor="let film of userFilms" [ngStyle]="{ 'border-color': film.FilmStatus === 'Watched' ? 'green' : (film.FilmStatus === 'ToWatch' ? 'blue' : 'red') }">
       <div class="card-body">
         <h5 class="card-title">Tytuł: {{ film.Title }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Reżyser: {{ film.Director }}</h6>
