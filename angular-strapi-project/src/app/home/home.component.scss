@@ -1,6 +1,5 @@
 .movies-container {
-  // Ustawienie szerokości kontenera na 80% ekranu
-    margin: 0 auto;  // Wyśrodkowanie kontenera
+    margin: 0 auto 100px;  // Wyśrodkowanie kontenera
     display: flex;
     overflow-x: auto;  // Umożliwia przewijanie w poziomie
     white-space: nowrap; // Zapobiega zawijaniu kafelków
@@ -42,11 +41,19 @@
     h3 {
       margin: 10px 0 5px;
       font-size: 16px;
+      overflow: hidden;
+      white-space: wrap;
     }
   
     p {
       font-size: 14px;
       opacity: 0.7;
     }
+  }
+
+  .list-button {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
   }
   

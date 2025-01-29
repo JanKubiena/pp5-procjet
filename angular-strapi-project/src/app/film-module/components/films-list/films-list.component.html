@@ -1,10 +1,12 @@
-<h1>Lista twoich obejrzanych filmów:</h1>
-<div *ngFor="let film of userFilms" class="card" style="width: 18rem; margin-bottom: 1rem;">
-    <div class="card-body">
-      <h5 class="card-title">Tytuł: {{ film.Title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Reżyser: {{ film.Director }}</h6>
-      <p class="card-text">Twoja ocena: {{ film.Grade }} / 10</p>
-      <a href="films/film-details/{{ film.documentId }}" class="card-link">Edytuj</a>
-    </div>
+<div class="container">
+  <h1>Lista twoich obejrzanych filmów:</h1>
+  <div *ngFor="let film of userFilms" class="card" style="width: 18rem; margin-bottom: 1rem;">
+      <div class="card-body">
+        <h5 class="card-title">Tytuł: {{ film.Title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Reżyser: {{ film.Director }}</h6>
+        <p class="card-text">Twoja ocena: {{ film.Grade }} / 10</p>
+        <a href="films/film-details/{{ film.documentId }}" class="card-link">Edytuj</a>
+      </div>
+  </div>
+  <a class="btn btn-primary btn-lg" href="films/add-film">Dodaj film</a>
 </div>
-<a class="btn btn-primary btn-lg" href="films/add-film">Dodaj film</a>

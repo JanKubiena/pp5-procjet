@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../../services/authentication.service';
 import { FilmsService } from '../../../services/films.service';
 import { Film } from '../../../models/film';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +19,7 @@ export class FilmsListComponent implements OnInit {
   isLoggedIn = false;
   authStatus!: Subscription;
 
-  constructor(public auth: AuthService, private fs: FilmsService) {}
+  constructor(public auth: AuthService,private router: Router, private fs: FilmsService) {}
 
   userFilms: Film[] = [];
 
@@ -28,6 +29,8 @@ export class FilmsListComponent implements OnInit {
       if (status) {
         this.userFilms = this.fs.getUserFilmsList()
         console.log(this.userFilms)
+      } else {
+        this.router.navigate(['/user/login']);
       }
     });
   }
