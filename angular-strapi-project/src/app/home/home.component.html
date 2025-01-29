@@ -1,9 +1,16 @@
 <div class="d-flex vh-100">
     <div class="container my-auto">
+      <div class="movies-container">
+        <div *ngFor="let movie of movies" class="movie-card">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.release_date }}</p>
+        </div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <a type="button" class="btn btn-primary btn-lg" href="films/films-list">Przejdź do swojej listy filmów</a>
-        </div>
+          </div>
       </div>
     </div>
 </div>  
