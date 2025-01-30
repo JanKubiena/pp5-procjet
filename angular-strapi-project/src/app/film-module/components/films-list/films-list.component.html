@@ -1,12 +1,14 @@
 <div class="container">
+  <a class="btn btn-dark btn-lg add-film-btn" href="films/add-film">Dodaj film</a>
   <h2>TWOJA FILMOWA LISTA:</h2>
-  <div class="card" *ngFor="let film of userFilms" [ngStyle]="{ 'border-color': film.FilmStatus === 'Watched' ? 'green' : (film.FilmStatus === 'ToWatch' ? 'blue' : 'red') }">
+  <div class="films-container">
+    <div class="card" *ngFor="let film of userFilms" [ngStyle]="{ 'border-color': film.FilmStatus === 'Watched' ? 'green' : (film.FilmStatus === 'ToWatch' ? 'blue' : 'red') }">
       <div class="card-body">
         <h5 class="card-title">Tytuł: {{ film.Title }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Reżyser: {{ film.Director }}</h6>
         <p class="card-text">Twoja ocena: {{ film.Grade }} / 10</p>
         <a href="films/film-details/{{ film.documentId }}" class="card-link">Edytuj</a>
       </div>
+    </div>
   </div>
-  <a class="btn btn-primary btn-lg" href="films/add-film">Dodaj film</a>
 </div>
