@@ -5,22 +5,6 @@
         <form (ngSubmit)="signup()" class="w-100 p-4 border rounded bg-white shadow" #signupForm="ngForm">
           <h3 class="mb-4 text-center">Rejestracja</h3>
           <div class="mb-3">
-            <label for="userName" class="form-label">Imię</label>
-            <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" autocomplete="name">
-          </div>
-          <div class="mb-3">
-            <label for="dateOfBirth" class="form-label">Data urodzenia</label>
-            <input type="date" class="form-control" id="dateOfBirth" name="date">
-          </div>
-          <div class="form-group">
-            <label for="genderSelect">Płeć</label>
-            <select class="form-control" id="genderSelect">
-              <option>wybierz</option>
-              <option>kobieta</option>
-              <option>mężczyzna</option>
-            </select>
-          </div>
-          <div class="mb-3">
             <label for="registerUsernameInput" class="form-label">Nazwa Użytkownika</label>
             <input type="text" class="form-control" id="registerUsernameInput" name="username" [(ngModel)]="formUserData.username" required autocomplete="username">
           </div>
@@ -33,10 +17,24 @@
             <input type="password" class="form-control" id="registerPassword" name="password" [(ngModel)]="formUserData.password" required autocomplete="new-password">
           </div>
           <div class="mb-3">
-            <label for="reInputPassword" class="form-label">Powtórz hasło</label>
-            <input type="password" class="form-control" id="reInputPassword">
+            <label for="dateOfBirth" class="form-label">Data urodzenia</label>
+            <input type="date" class="form-control" id="dateOfBirth" name="date" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="genderSelect">Płeć</label>
+            <select class="form-select" id="genderSelect" required>
+              <option disabled selected>-- wybierz płeć --</option>
+              <option value="woman">kobieta</option>
+              <option value="man">mężczyzna</option>
+              <option value="other">inna</option>
+            </select>
+          </div>
+          <div class="mb-3 d-flex align-items-start">
+            <input type="checkbox" class="form-check-input me-2" id="markeingCheckbox" name="Marketing">
+            <label for="markeingCheckbox" class="form-check-label">Zgadzam się na przesyłanie na podanego emaila treści marketingowych</label>   
           </div>
           <button type="submit" class="btn btn-primary w-100" [disabled]="!signupForm.form.valid">Zarejestruj</button>
+          <a href="user/login" class="btn btn-link w-100">Masz już konto? Zaloguj się</a>
         </form>
         <div *ngIf="message">{{ message }}</div>
       </div>

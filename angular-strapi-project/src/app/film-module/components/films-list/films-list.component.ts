@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../services/authentication.service';
 import { FilmsService } from '../../../services/films.service';
 import { Film } from '../../../models/film';
-import { Router } from '@angular/router';
+
 
 
 

@@ -34,7 +34,7 @@
               <input type="checkbox" class="form-check-input" id="editUserFavourite" name="Favourite" [(ngModel)]="currentFilm.Favourite">
             </div>
             <button [disabled]="!filmForm.valid" type="submit" name="action" value="save" class="btn btn-primary w-100 mb-2">Zapisz</button>
-            <button [disabled]="!filmForm.valid" type="submit" name="action" value="delete" class="btn btn-danger w-100">Usuń film</button>
+            <button type="submit" name="action" value="delete" class="btn btn-danger w-100">Usuń film</button>
           </form>
           <!-- <div *ngIf="message">{{ message }}</div> -->
         </div>

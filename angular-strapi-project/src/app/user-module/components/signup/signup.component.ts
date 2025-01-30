@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserRegistration } from '../../../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
   standalone: true
 })
 export class SignupComponent implements OnDestroy { 
-  formUserData: { username?: string; email?: string; password?: string } = {};
+  formUserData: UserRegistration = {} as UserRegistration;
   private registrationSub: Subscription | undefined;
   message: string | null = null;
 

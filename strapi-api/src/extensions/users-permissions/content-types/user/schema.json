@@ -70,6 +70,21 @@
       "relation": "oneToMany",
       "target": "api::film.film",
       "mappedBy": "user"
+    },
+    "BirthDate": {
+      "type": "date"
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "woman",
+        "man",
+        "other"
+      ]
+    },
+    "Marketing": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
