@@ -10,7 +10,7 @@ import { FilmsApiResponse, SingleFilmApiResponse, PostFilm, Film } from '../mode
 })
 export class FilmsService {
 
-  filmsUrl = 'http://localhost:8082/api/films';
+  filmsUrl = 'https://strapi-film-api.onrender.com/api/films';
   userId: string = '';
   userFilms: Film[] = [];
 

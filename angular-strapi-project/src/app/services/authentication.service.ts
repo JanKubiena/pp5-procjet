@@ -13,7 +13,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private starpiUrl = 'http://127.0.0.1:8082/api/auth/local';
+  private starpiUrl = 'https://strapi-film-api.onrender.com/api/auth/local';
   private loginTracker: BehaviorSubject<boolean>;
     
   loggedInStatus$;

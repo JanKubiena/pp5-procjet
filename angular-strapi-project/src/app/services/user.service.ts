@@ -10,7 +10,7 @@ import { User } from '../models/user'
 })
 export class UserService {
 
-    userUrl = 'http://localhost:8082/api/users';
+    userUrl = 'https://strapi-film-api.onrender.com/api/users';
 
     constructor(private http: HttpClient, private auth: AuthService) {}
 
